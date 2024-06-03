@@ -1,0 +1,105 @@
+{% extends "frontend/base.html" %} {% block content %}
+
+<!-- Navbar -->
+{% include "frontend/navbar.html" %} {% load static %}
+<!-- Main Container -->
+<section id="home_section">
+  <div class="container d-flex flex-column" id="home_container">
+    <!-- Intro Section -->
+    <div class="jumbotron">
+      <div class="text-center">
+        <img
+          class="center-block"
+          width="160px"
+          src="{% static 'frontend/images/cutter.png' %}"
+          alt="Test Image"
+        />
+      </div>
+      <h1 class="display-4">Bienvenido a CortiLink!</h1>
+      <p class="lead">
+        Acorta tus urls y averigua cuántos clicks se han realizado.
+      </p>
+    </div>
+    <!-- URL Shortening Form -->
+    <div class="card mt-3" id="search-bar">
+      <div class="card-body">
+        <h5 class="card-title ms-2">Acorta tu URL</h5>
+        <form id="url-form" class="needs-validation" novalidate>
+          <div class="form-group row">
+            <div class="col-lg-9 col-md-9">
+              <input
+                type="URL"
+                class="form-control"
+                id="url-input"
+                value=""
+                placeholder="Introduce una URL para acortarla."
+                required
+              />
+              <div class="valid-feedback">¡Correcto!</div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+              <button type="submit" class="btn btn-primary ms-0 cut_button">
+                Acortar
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="">
+          <p id="url_feedback"></p>
+        </div>
+      </div>
+    </div>
+    {% comment %} Results Card {% endcomment %}
+    <div class="card mt-3" id="results_card">
+      <div class="card-body">
+        {% comment %} Shortened url {% endcomment %}
+        <div class="row container justify-content-center">
+          <div class="col-6 justify-content-end">
+            <b>
+              <p id="shortened_url_p"></p>
+            </b>
+          </div>
+          <div class="col-6">
+            <a id="shortened_url" target="_blank"> </a>
+          </div>
+        </div>
+        {% comment %} Number of clicks {% endcomment %}
+        <div class="row container justify-content-center">
+          <div class="col-6 justify-content-end">
+            <b>
+              <p id="last_click_p"></p>
+            </b>
+          </div>
+          <div class="col-6">
+            <a id="last_click" target="_blank"> </a>
+          </div>
+        </div>
+        {% comment %} Last Click {% endcomment %}
+        <div class="row container justify-content-center">
+          <div class="col-6 justify-content-end">
+            <b>
+              <p id="number_clicks_p"></p>
+            </b>
+          </div>
+          <div class="col-6">
+            <a id="number_clicks" target="_blank"> </a>
+          </div>
+        </div>
+        {% comment %} Caduca el... {% endcomment %}
+        <div class="row container justify-content-center">
+          <div class="col-6 justify-content-end">
+            <b>
+              <p id="expiration_date_p"></p>
+            </b>
+          </div>
+
+          <div class="col-6">
+            <a id="expiration_date" target="_blank"> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+h1 {
+}
+
+body {
+}
+
+#mynavbar {
+  background-color: #240a34 !important;
+  height: 4em;
+}
+
+#home_container {
+  justify-content: center;
+  align-items: center;
+  margin-top: 7em;
+}
+@media (max-width: 991px) {
+  #home_container {
+    margin-top: 5em;
+  }
+}
+
+#search-bar {
+  width: 45em;
+  max-width: 95%;
+}
+@media (max-width: 991px) {
+  #search-bar {
+    max-width: 100%;
+  }
+}
+
+#url_feedback {
+  color: red;
+}
+
+#results_card {
+  width: 45em;
+  max-width: 95%;
+  display: none;
+}
+@media (max-width: 991px) {
+  #results_card {
+    max-width: 100%;
+  }
+}
+
+#url-input {
+}
+
+#url_validator {
+  margin: 0.5em;
+  color: #c04e7b;
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px);
+  }
+  .cut_button {
+    margin: 0.5em;
+  }
+  .card-body {
+    text-align: center;
+  }
+}
