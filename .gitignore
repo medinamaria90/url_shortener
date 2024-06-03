@@ -1,0 +1,55 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+
+# If you are using SQLite, add the database file
+db.sqlite3
+
+# Ignore the local settings file
+settings_local.py
+
+# Ignore Django migrations
+*/migrations/*
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore IDEs and editors specific files
+.vscode/
+.idea/
+*.swp
+*~
+.project
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+
+# Ignore environment variables
+.env
+
+# Ignore node modules (if using Node.js)
+node_modules/
+
+# Ignore coverage reports
+coverage/
+*.cover
+.hypothesis/
+.pytest_cache/
+.coverage
+
+# Ignore build directories
+build/
+dist/
+*.egg-info/
+.eggs/
+
