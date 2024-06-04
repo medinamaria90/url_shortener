@@ -42,12 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	function fix_url(urlInput, urlInputElement){
 		// Añadir 'http://' si no está presente
 
-		if (urlInput.startsWith('www.')) {
-			urlInput = 'http://' + urlInput;
-			urlInputElement.value = urlInput;
-		}
 
-		else if (!urlInput.startsWith('http://www.') && !urlInput.startsWith('https://www.')) {
+		if (!urlInput.startsWith('http://') && !urlInput.startsWith('https://')) {
 			urlInput = 'http://www.' + urlInput;
 			urlInputElement.value = urlInput;
 		}
