@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	function display_data(data){
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let results_card = document.getElementById("results_card");
 		let expiration_date_p = document.getElementById("expiration_date_p");
 		let expiration_date = document.getElementById("expiration_date");
+		
 
 		results_card.style.display = "block";
 		try{
@@ -52,30 +54,30 @@ document.addEventListener('DOMContentLoaded', () => {
 		return urlInput;
 	}
 
-	function checkDomain(str){
-		let pattern = /\.[a-zA-Z]+/;
-		if (! pattern.test(str)){
-			url_feedback.innerHTML = "¡URL Inválida!";
-			return false;
+	function checkDomain(url) {
+		let givenURL ;
+		try {
+			givenURL = new URL (url);
+		} catch (error) {
+		   return false; 
 		}
 		return true;
-	}
+	  }
 
 	function checkWhitespace(str) {
 		let pattern = /\s/
 		if (pattern.test(str)){
-			console.log("Yeah 2 here");
-			url_feedback.innerText = '¡URL Inválida!';
 			return false;
 		}
 		return true;
 	}
 
 	function remove_old_feedback(urlInputElement){
-		url_feedback.innerHTML = "";
-		shortened_url_p.innerHTML = "";
-		shortened_url.innerHTML = "";
-		shortened_url.href = "";
+		let url_feedback = document.getElementById('url_feedback');
+		results_card.style.display = "none";
+		if (url_feedback){
+			url_feedback.style.display = "none";
+		}
 		urlInputElement.classList.remove('is-valid');
 		urlInputElement.classList.remove('is-invalid');
 
@@ -85,30 +87,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault(); // Evitar que el formulario se envíe de forma tradicional
+		let validFeedback = document.getElementsByClassName("valid-feedback")[0];
 		let urlInput = document.getElementById('url-input').value;
 		let url_feedback = document.getElementById('url_feedback');
 		const urlInputElement = document.getElementById('url-input');
-		
-
         let isValid = true;
 		remove_old_feedback(urlInputElement);
-        if (!checkDomain(urlInput) || !checkWhitespace(urlInput)){
-            isValid = false;
-        }
-
+		urlInput = fix_url(urlInput, urlInputElement);
+		if (!checkDomain(urlInput) || !checkWhitespace(urlInput)){
+			isValid = false;
+		}
+	
         if (!isValid) {
-			
-            urlInputElement.classList.add('is-invalid');
+			validFeedback.style.display  = 'none';
             form.classList.add('was-validated');
+			urlInputElement.classList.add('is-invalid');
+			url_feedback.innerText = '¡URL Inválida!';
+			url_feedback.style.display = "block";
             return;
-        } else {
-			
-            urlInputElement.classList.add('is-valid');
+        } 
+		
+		else {
+			validFeedback.style.display  = 'block';
 			form.classList.add('was-validated');
-			urlInput = fix_url(urlInput, urlInputElement);
+			urlInputElement.classList.add('is-valid');
         }
-
-		console.log(urlInput);
         const payload = {
             link: urlInput
         };
@@ -120,14 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify(payload)
             });
-
+			const data = await response.json();
+			console.log(data);
             if (response.ok) {
-                const data = await response.json();
-                console.log('URL shortened:', data);
 				display_data(data);
 				}
 			else {
-				console.log(response.json())
                 console.error('Error en la petición:', response.statusText);
             }
         } catch (error) {

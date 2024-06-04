@@ -19,6 +19,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['cortilink.pythonanywhere.com']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [

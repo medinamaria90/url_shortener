@@ -24,7 +24,7 @@
     <div class="card mt-3" id="search-bar">
       <div class="card-body">
         <h5 class="card-title ms-2">Acorta tu URL</h5>
-        <form id="url-form" class="needs-validation" novalidate>
+        <form id="url-form" class="needs-validation" novalidate="novalidate">
           <div class="form-group row">
             <div class="col-lg-9 col-md-9">
               <input
@@ -38,7 +38,10 @@
               <div class="valid-feedback">¡Correcto!</div>
             </div>
             <div class="col-lg-3 col-md-3">
-              <button type="submit" class="btn btn-primary ms-0 cut_button">
+              <button
+                type="submit"
+                class="btn btn-primary ms-0 cut_button"
+              >
                 Acortar
               </button>
             </div>

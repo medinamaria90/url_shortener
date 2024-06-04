@@ -15,7 +15,7 @@ __pycache__/
 db.sqlite3
 
 # Ignore the local settings file
-settings_local.py
+settings.py
 
 # Ignore Django migrations
 */migrations/*
