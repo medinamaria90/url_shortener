@@ -24,11 +24,11 @@ def generate_expiration():
 class Shorterlink (models.Model):
     user = models.ForeignKey(User, null= True, blank=True, on_delete=models.SET_NULL)
     clicks = models.IntegerField(default=0)
-    last_click = models.DateField(blank=True, null=True, default=None)   
+    last_click = models.DateField(blank=True, null=True, default=None)
     link = models.URLField(max_length=50, unique=True)
     short_link = models.CharField(max_length=50, blank=True, null=True, unique=True)
-    expiration = models.DateField(blank=True, null=True,)           
-    
+    expiration = models.DateField(blank=True, null=True,)
+
     def save(self, *args, **kwargs):
         if not self.short_link:
             self.short_link =  generate_short_link()
