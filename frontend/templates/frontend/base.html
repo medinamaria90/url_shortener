@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
-	<meta property="og:image:secure_url" content="{% static 'frontend/images/cutter.png' %}" /> 
-	<meta property="og:image:type" content="image/jpg" /> 
-    <meta property="og:image" content="{% static 'frontend/images/cutter.png' %}" />
-
+    <meta
+      property="og:image:secure_url"
+      content="{% static 'frontend/images/cutter.png' %}"
+    />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta
+      property="og:image"
+      content="{% static 'frontend/images/cutter.png' %}"
+    />
     <link rel="stylesheet" href="{% static 'frontend/navbar.css' %}" />
     <link rel="stylesheet" href="{% static 'frontend/styles.css' %}" />
     <link
@@ -20,7 +25,6 @@
     <title>Cortilink</title>
   </head>
   <body>
-    
     {% block content %} {% endblock %}
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -33,6 +37,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="{% static 'frontend/js/api_request.js' %}"></script>
+    <script
+      type="module"
+      src="{% static 'frontend/js/api_request.js' %}"
+    ></script>
   </body>
 </html>
