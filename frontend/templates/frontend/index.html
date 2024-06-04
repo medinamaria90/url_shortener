@@ -38,10 +38,7 @@
               <div class="valid-feedback">¡Correcto!</div>
             </div>
             <div class="col-lg-3 col-md-3">
-              <button
-                type="submit"
-                class="btn btn-primary ms-0 cut_button"
-              >
+              <button type="submit" class="btn btn-primary cut_button" id="cutbutton">
                 Acortar
               </button>
             </div>
@@ -57,46 +54,46 @@
       <div class="card-body">
         {% comment %} Shortened url {% endcomment %}
         <div class="row container justify-content-center">
-          <div class="col-6 justify-content-end">
+          <div class="col-4 justify-content-end">
             <b>
               <p id="shortened_url_p"></p>
             </b>
           </div>
-          <div class="col-6">
+          <div class="col-8">
             <a id="shortened_url" target="_blank"> </a>
           </div>
         </div>
         {% comment %} Number of clicks {% endcomment %}
         <div class="row container justify-content-center">
-          <div class="col-6 justify-content-end">
+          <div class="col-4 justify-content-end">
             <b>
               <p id="last_click_p"></p>
             </b>
           </div>
-          <div class="col-6">
+          <div class="col-8">
             <a id="last_click" target="_blank"> </a>
           </div>
         </div>
         {% comment %} Last Click {% endcomment %}
         <div class="row container justify-content-center">
-          <div class="col-6 justify-content-end">
+          <div class="col-4 justify-content-end">
             <b>
               <p id="number_clicks_p"></p>
             </b>
           </div>
-          <div class="col-6">
+          <div class="col-8">
             <a id="number_clicks" target="_blank"> </a>
           </div>
         </div>
         {% comment %} Caduca el... {% endcomment %}
         <div class="row container justify-content-center">
-          <div class="col-6 justify-content-end">
+          <div class="col-4 justify-content-end">
             <b>
               <p id="expiration_date_p"></p>
             </b>
           </div>
 
-          <div class="col-6">
+          <div class="col-8">
             <a id="expiration_date" target="_blank"> </a>
           </div>
         </div>
