@@ -53,9 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function checkDomain(str){
-		let pattern = /\.[a-zA-Z]+$/;
+		let pattern = /\.[a-zA-Z]+/;
 		if (! pattern.test(str)){
-			console.log("Yeah 1 here");
 			url_feedback.innerHTML = "¡URL Inválida!";
 			return false;
 		}
